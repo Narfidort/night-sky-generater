@@ -11,4 +11,4 @@ def iter_napier(r):
 
 iter_napier([2**x for x in range(30)])
 
-print("nikoniko")
+print("nikoniko desu")
