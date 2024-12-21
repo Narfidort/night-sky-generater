@@ -1,9 +1,5 @@
 print("Hello World")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 66c46ea7b3c99bded5e1ec50968acdad9a57fc4c
 def approx_napier(n):
     return (1+1/n)**n
 
