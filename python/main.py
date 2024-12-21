@@ -10,5 +10,3 @@ def iter_napier(r):
 
 
 iter_napier([2**x for x in range(30)])
-
-print([x for x in range(1,101)])
