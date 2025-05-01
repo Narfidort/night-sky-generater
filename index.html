@@ -13,25 +13,962 @@
             color: #333;
         }
         h1 {
-            color: #ff0b0b;
+            color: #0067c0;
         }
         p {
             font-size: 16px;
         }
+        #tabcontrol a {
+   display: inline-block;
+   border-width: 1px 1px 1px 1px; 
+   border-style: solid;
+   border-color: black;
+   padding: 0.75em 1em;
+   text-decoration: none;
+   color: black;
+   background-color: white;
+   font-weight: bold;
+   position: relative;
+}
+#tabcontrol a:hover {
+   text-decoration: underline;  
+     }
     </style>
 
 </head>
 
 
 <body>
-    <h1>Hello, World!</h1>
-    <input type="text" id="myInput1" placeholder="Type something...">
-    <input type="number" id="myInput2" placeholder="Type something...">
-    <input type="number" id="myInput3" placeholder="Type something...">
-    <button onclick="copyValue()">コピー</button>
+    <p id="tabcontrol">
+    <a href="#tabpage1">代償者</a>
+    <a href="#tabpage2">シュブルテ</a>
+</p>
+<div id="tabbody">
+    <div id="tabpage1">
+    <h1 style="padding: .5em .7em;
+    border-left: 5px solid #2589d0;
+    background-color: #f2f2f2;
+    color: #333333;">代償者</h1>
+    名前
+    <input type="text" id="Name11" style="width:stretch;text-align:right;margin:0;">
+    なまえ
+    <input type="text" id="Name12" style="width:stretch;text-align:right;margin:0;">
+    性別
+    <input type="text" id="Name13" style="width:stretch;text-align:right;margin:0;">
+    年齢
+    <input type="text" id="Name14" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    HP
+    <input type="text" id="Name15" style="width:stretch;text-align:right;margin:0;">
+    SK
+    <input type="text" id="Name16" style="width:stretch;text-align:right;margin:0;">
+    腐敗率
+    <input type="text" id="Name17" style="width:stretch;text-align:right;margin:0;" readonly>
+    筋力基礎値
+    <input type="text" id="Name18" style="width:stretch;text-align:right;margin:0;">
+    initiative
+    <input type="text" id="Name19" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    体格
+    <input type="text" id="Name110" style="width:stretch;text-align:right;margin:0;">
+    容姿
+    <input type="text" id="Name111" style="width:stretch;text-align:right;margin:0;">
+    <input type="button" id="dice1" value="dice">
+    <br>
+    〇探索系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="シュブルテ"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tan111" style="width:stretch;text-align:right;margin:0;" value="知覚" readonly></td>
+    <td><input type="text" id="tan112" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="tan113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan121" style="width:stretch;text-align:right;margin:0;" value="観察" readonly></td>
+    <td><input type="text" id="tan122" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tan123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan131" style="width:stretch;text-align:right;margin:0;" value="人間観察" readonly></td>
+    <td><input type="text" id="tan132" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan141" style="width:stretch;text-align:right;margin:0;" value="応急処置" readonly></td>
+    <td><input type="text" id="tan142" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tan143" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan144" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan145" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan146" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan147" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan151" style="width:stretch;text-align:right;margin:0;" value="隠蔽" readonly></td>
+    <td><input type="text" id="tan152" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan153" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan154" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan155" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan156" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan157" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan161" style="width:stretch;text-align:right;margin:0;" value="潜伏" readonly></td>
+    <td><input type="text" id="tan162" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan163" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan164" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan165" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan166" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan167" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan171" style="width:stretch;text-align:right;margin:0;" value="検索" readonly></td>
+    <td><input type="text" id="tan172" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan173" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan174" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan175" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan176" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan177" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan181" style="width:stretch;text-align:right;margin:0;" value="体内時計" readonly></td>
+    <td><input type="text" id="tan182" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tan183" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan184" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan185" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan186" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan187" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan191" style="width:stretch;text-align:right;margin:0;" value="結合" readonly></td>
+    <td><input type="text" id="tan192" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan193" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan194" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan195" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan196" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan197" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan1101" style="width:stretch;text-align:right;margin:0;" value="痕跡(スカミア)" readonly></td>
+    <td><input type="text" id="tan1102" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan1103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan1104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan1105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan1106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan1107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan1111" style="width:stretch;text-align:right;margin:0;" value="痕跡(戦闘)" readonly></td>
+    <td><input type="text" id="tan1112" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan1113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan1114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan1115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan1116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan1117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan1121" style="width:stretch;text-align:right;margin:0;" value="その他痕跡()"></td>
+    <td><input type="text" id="tan1122" style="width:stretch;text-align:right;margin:0;"value="1" readonly></td>
+    <td><input type="text" id="tan1123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan1124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan1125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan1126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan1127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇戦闘系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="シュブルテ"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="sen111" style="width:stretch;text-align:right;margin:0;" value="躱す" readonly></td>
+    <td><input type="text" id="sen112" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen121" style="width:stretch;text-align:right;margin:0;" value="見切り" readonly></td>
+    <td><input type="text" id="sen122" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen131" style="width:stretch;text-align:right;margin:0;" value="死んだふり" readonly></td>
+    <td><input type="text" id="sen132" style="width:stretch;text-align:right;margin:0;" value="30" readonly></td>
+    <td><input type="text" id="sen133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen141" style="width:stretch;text-align:right;margin:0;" value="体術" readonly></td>
+    <td><input type="text" id="sen142" style="width:stretch;text-align:right;margin:0;" value="25" readonly></td>
+    <td><input type="text" id="sen143" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen144" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen145" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen146" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen147" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen151" style="width:stretch;text-align:right;margin:0;" value="投げつける" readonly></td>
+    <td><input type="text" id="sen152" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen153" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen154" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen155" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen156" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen157" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen161" style="width:stretch;text-align:right;margin:0;" value="締め落とし" readonly></td>
+    <td><input type="text" id="sen162" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen163" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen164" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen165" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen166" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen167" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen171" style="width:stretch;text-align:right;margin:0;" value="特攻" readonly></td>
+    <td><input type="text" id="sen172" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="sen173" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen174" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen175" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen176" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen177" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen181" style="width:stretch;text-align:right;margin:0;" value="銃火器" readonly></td>
+    <td><input type="text" id="sen182" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen183" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen184" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen185" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen186" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen187" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen191" style="width:stretch;text-align:right;margin:0;" value="刀" readonly></td>
+    <td><input type="text" id="sen192" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen193" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen194" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen195" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen196" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen197" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen1101" style="width:stretch;text-align:right;margin:0;" value="スカミア銃" readonly></td>
+    <td><input type="text" id="sen1102" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen1103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen1104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen1105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen1106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen1107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇対人系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="シュブルテ"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tai111" style="width:stretch;text-align:right;margin:0;" value="錯乱" readonly></td>
+    <td><input type="text" id="tai112" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tai113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tai121" style="width:stretch;text-align:right;margin:0;" value="交渉" readonly></td>
+    <td><input type="text" id="tai122" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tai123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai127" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    </tr><tr>
+    <td><input type="text" id="tai131" style="width:stretch;text-align:right;margin:0;" value="恐喝" readonly></td>
+    <td><input type="text" id="tai132" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tai133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇知識系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="シュブルテ"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tis111" style="width:stretch;text-align:right;margin:0;" value="シュブルテ言語" readonly></td>
+    <td><input type="text" id="tis112" style="width:stretch;text-align:right;margin:0;" value="0" readonly></td>
+    <td><input type="text" id="tis113" style="width:stretch;text-align:right;margin:0;" value="0" readonly></td>
+    <td><input type="text" id="tis114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis121" style="width:stretch;text-align:right;margin:0;" value="料理" readonly></td>
+    <td><input type="text" id="tis122" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis131" style="width:stretch;text-align:right;margin:0;" value="スカミア学" readonly></td>
+    <td><input type="text" id="tis132" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tis133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis141" style="width:stretch;text-align:right;margin:0;" value="考古学" readonly></td>
+    <td><input type="text" id="tis142" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis143" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis144" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis145" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis146" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis147" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis151" style="width:stretch;text-align:right;margin:0;" value="戦闘知識" readonly></td>
+    <td><input type="text" id="tis152" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis153" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis154" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis155" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis156" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis157" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis161" style="width:stretch;text-align:right;margin:0;" value="解剖学" readonly></td>
+    <td><input type="text" id="tis162" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis163" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis164" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis165" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis166" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis167" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis171" style="width:stretch;text-align:right;margin:0;" value="他言語" readonly></td>
+    <td><input type="text" id="tis172" style="width:stretch;text-align:right;margin:0;" value="0" readonly></td>
+    <td><input type="text" id="tis173" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis174" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis175" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis176" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis177" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis181" style="width:stretch;text-align:right;margin:0;" value="現代史" readonly></td>
+    <td><input type="text" id="tis182" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis183" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis184" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis185" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis186" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis187" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis191" style="width:stretch;text-align:right;margin:0;" value="科学" readonly></td>
+    <td><input type="text" id="tis192" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis193" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis194" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis195" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis196" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis197" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1101" style="width:stretch;text-align:right;margin:0;" value="天文学" readonly></td>
+    <td><input type="text" id="tis1102" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis1103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1111" style="width:stretch;text-align:right;margin:0;" value="電子機器" readonly></td>
+    <td><input type="text" id="tis1112" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis1113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1121" style="width:stretch;text-align:right;margin:0;" value="芸術" readonly></td>
+    <td><input type="text" id="tis1122" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tis1123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1131" style="width:stretch;text-align:right;margin:0;" value="加工術" readonly></td>
+    <td><input type="text" id="tis1132" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis1133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1141" style="width:stretch;text-align:right;margin:0;" value="考案" readonly></td>
+    <td><input type="text" id="tis1142" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tis1143" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1144" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1145" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1146" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1147" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis1151" style="width:stretch;text-align:right;margin:0;" value="知識" readonly></td>
+    <td><input type="text" id="tis1152" style="width:stretch;text-align:right;margin:0;" value="25" readonly></td>
+    <td><input type="text" id="tis1153" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis1154" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis1155" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis1156" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis1157" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇運技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="シュブルテ"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="unn111" style="width:stretch;text-align:right;margin:0;" value="弱運" readonly></td>
+    <td><input type="text" id="unn112" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="unn113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="unn121" style="width:stretch;text-align:right;margin:0;" value="運" readonly></td>
+    <td><input type="text" id="unn122" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="unn123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="unn131" style="width:stretch;text-align:right;margin:0;" value="強運" readonly></td>
+    <td><input type="text" id="unn132" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="unn133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr>
+    </table>
+    <input type="button" id="button1" value="代償者ポイント　　">
+    <input type="text" id="Result1" style="width:stretch;text-align:right;margin:0;" readonly>
+    <br>
+    <input type="button" id="button2" value="シュブルテポイント">
+    <input type="text" id="Result2" style="width:stretch;text-align:right;margin:0;" readonly>
+    <br>
+    <input type="button" id="button3" value="合計ポイント　　　">
+    <input type="text" id="Result3" style="width:stretch;text-align:right;margin:0;" readonly>
+    <br>
+    <button onclick="copyValue1()">コピー</button>
+</div>
+<div id="tabpage2">
 
-    <script src="script.js"></script>
+    <h1>シュブルテ</h1>
+    名前
+    <input type="text" id="Name21" style="width:stretch;text-align:right;margin:0;">
+    なまえ
+    <input type="text" id="Name22" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    性別
+    <input type="text" id="Name23" style="width:stretch;text-align:right;margin:0;">
+    寄生歴
+    <input type="text" id="Name24" style="width:stretch;text-align:right;margin:0;">
+    好きな色
+    <input type="text" id="Name242" style="width:stretch;text-align:right;margin:0;">
+    生物
+    <input type="text" id="Name25" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    SK能力
+    <input type="text" id="Name26" style="width:stretch;text-align:right;margin:0;">
+    能力説明
+    <input type="text" id="Name27" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    HP
+    <input type="text" id="Name28" style="width:stretch;text-align:right;margin:0;">
+    SK
+    <input type="text" id="Name29" style="width:stretch;text-align:right;margin:0;">
+    乖離率
+    <input type="text" id="Name30" style="width:stretch;text-align:right;margin:0;" readonly>
+    筋力基礎値
+    <input type="text" id="Name31" style="width:stretch;text-align:right;margin:0;">
+    initiative
+    <input type="text" id="Name32" style="width:stretch;text-align:right;margin:0;">
+    <br>
+    体格
+    <input type="text" id="Name33" style="width:stretch;text-align:right;margin:0;">
+    容姿
+    <input type="text" id="Name34" style="width:stretch;text-align:right;margin:0;">
+    <input type="button" id="dice2" value="dice">
+    <br>
+ 
+    〇探索系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tan211" style="width:stretch;text-align:right;margin:0;" value="知覚" readonly></td>
+    <td><input type="text" id="tan212" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="tan213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan216" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan221" style="width:stretch;text-align:right;margin:0;" value="観察" readonly></td>
+    <td><input type="text" id="tan222" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tan223" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan224" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan225" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan226" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan227" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan231" style="width:stretch;text-align:right;margin:0;" value="人間観察" readonly></td>
+    <td><input type="text" id="tan232" style="width:stretch;text-align:right;margin:0;" value="5"></td>
+    <td><input type="text" id="tan233" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan234" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan235" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan236" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan237" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan241" style="width:stretch;text-align:right;margin:0;" value="応急処置" readonly></td>
+    <td><input type="text" id="tan242" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tan243" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan244" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan245" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan246" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan247" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan251" style="width:stretch;text-align:right;margin:0;" value="隠蔽" readonly></td>
+    <td><input type="text" id="tan252" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan253" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan254" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan255" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan256" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan257" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tsn261" style="width:stretch;text-align:right;margin:0;" value="潜伏" readonly></td>
+    <td><input type="text" id="tan262" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan263" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan264" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan265" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan266" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan267" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan271" style="width:stretch;text-align:right;margin:0;" value="検索" readonly></td>
+    <td><input type="text" id="tan272" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tan273" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan274" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan275" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan276" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan277" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan281" style="width:stretch;text-align:right;margin:0;" value="体内時計" readonly></td>
+    <td><input type="text" id="tan282" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tan283" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan284" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan285" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan286" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan287" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan291" style="width:stretch;text-align:right;margin:0;" value="結合" readonly></td>
+    <td><input type="text" id="tan292" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan293" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan294" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan295" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan296" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan297" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan2101" style="width:stretch;text-align:right;margin:0;" value="痕跡(スカミア)" readonly></td>
+    <td><input type="text" id="tan2102" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan2103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan2104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan2105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan2106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan2107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan2111" style="width:stretch;text-align:right;margin:0;" value="痕跡(戦闘)" readonly></td>
+    <td><input type="text" id="tan2112" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan2113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan2114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan2115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan2116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan2117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tan2121" style="width:stretch;text-align:right;margin:0;" value="その他痕跡()"></td>
+    <td><input type="text" id="tan2122" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tan2123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tan2124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tan2125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tan2126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tan2127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇戦闘系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="sen211" style="width:stretch;text-align:right;margin:0;" value="躱す" readonly></td>
+    <td><input type="text" id="sen212" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen216" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen221" style="width:stretch;text-align:right;margin:0;" value="見切り" readonly></td>
+    <td><input type="text" id="sen222" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen223" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen224" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen225" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen226" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen227" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen231" style="width:stretch;text-align:right;margin:0;" value="死んだふり" readonly></td>
+    <td><input type="text" id="sen232" style="width:stretch;text-align:right;margin:0;" value="30" readonly></td>
+    <td><input type="text" id="sen233" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen234" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen235" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen236" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen237" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen241" style="width:stretch;text-align:right;margin:0;" value="体術" readonly></td>
+    <td><input type="text" id="sen242" style="width:stretch;text-align:right;margin:0;" value="25" readonly></td>
+    <td><input type="text" id="sen243" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen244" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen245" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen246" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen247" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen251" style="width:stretch;text-align:right;margin:0;" value="投げつける" readonly></td>
+    <td><input type="text" id="sen252" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen253" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen254" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen255" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen256" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen257" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen261" style="width:stretch;text-align:right;margin:0;" value="締め落とし" readonly></td>
+    <td><input type="text" id="sen262" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen263" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen264" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen265" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen266" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen267" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen271" style="width:stretch;text-align:right;margin:0;" value="特攻" readonly></td>
+    <td><input type="text" id="sen272" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="sen273" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen274" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen275" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen276" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen277" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen281" style="width:stretch;text-align:right;margin:0;" value="銃火器" readonly></td>
+    <td><input type="text" id="sen282" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen283" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen284" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen285" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen286" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen287" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen291" style="width:stretch;text-align:right;margin:0;" value="刀" readonly></td>
+    <td><input type="text" id="sen292" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="sen293" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen294" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen295" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen296" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen297" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="sen2101" style="width:stretch;text-align:right;margin:0;" value="スカミア銃" readonly></td>
+    <td><input type="text" id="sen2102" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="sen2103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="sen2104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="sen2105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="sen2106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="sen2107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇対人系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tai211" style="width:stretch;text-align:right;margin:0;" value="錯乱" readonly></td>
+    <td><input type="text" id="tai212" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tai213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai216" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tai221" style="width:stretch;text-align:right;margin:0;" value="交渉" readonly></td>
+    <td><input type="text" id="tai222" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tai223" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai224" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai225" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai226" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai227" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tai231" style="width:stretch;text-align:right;margin:0;" value="恐喝" readonly></td>
+    <td><input type="text" id="tai232" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="tai233" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tai234" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tai235" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tai236" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tai237" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇知識系技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="tis211" style="width:stretch;text-align:right;margin:0;" value="シュブルテ言語" readonly></td>
+    <td><input type="text" id="tis212" style="width:stretch;text-align:right;margin:0;" value="10"></td>
+    <td><input type="text" id="tis213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis216" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis221" style="width:stretch;text-align:right;margin:0;" value="料理" readonly></td>
+    <td><input type="text" id="tis222" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis223" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis224" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis225" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis226" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis227" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis231" style="width:stretch;text-align:right;margin:0;" value="スカミア学" readonly></td>
+    <td><input type="text" id="tis232" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tis233" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis234" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis235" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis236" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis237" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis241" style="width:stretch;text-align:right;margin:0;" value="考古学" readonly></td>
+    <td><input type="text" id="tis242" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis243" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis244" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis245" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis246" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis247" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis251" style="width:stretch;text-align:right;margin:0;" value="戦闘知識" readonly></td>
+    <td><input type="text" id="tis252" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis253" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis254" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis255" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis256" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis257" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis261" style="width:stretch;text-align:right;margin:0;" value="解剖学" readonly></td>
+    <td><input type="text" id="tis262" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis263" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis264" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis265" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis266" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis267" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis271" style="width:stretch;text-align:right;margin:0;" value="他言語" readonly></td>
+    <td><input type="text" id="tis272" style="width:stretch;text-align:right;margin:0;" value="0" readonly></td>
+    <td><input type="text" id="tis273" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis274" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis275" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis276" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis277" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis281" style="width:stretch;text-align:right;margin:0;" value="現代史" readonly></td>
+    <td><input type="text" id="tis282" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis283" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis284" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis285" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis286" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis287" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis291" style="width:stretch;text-align:right;margin:0;" value="科学" readonly></td>
+    <td><input type="text" id="tis292" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis293" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis294" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis295" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis296" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis297" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2101" style="width:stretch;text-align:right;margin:0;" value="天文学" readonly></td>
+    <td><input type="text" id="tis2102" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis2103" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2104" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2105" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2106" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2107" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2111" style="width:stretch;text-align:right;margin:0;" value="電子機器" readonly></td>
+    <td><input type="text" id="tis2112" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis2113" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2114" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2115" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2116" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2117" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2121" style="width:stretch;text-align:right;margin:0;" value="芸術" readonly></td>
+    <td><input type="text" id="tis2122" style="width:stretch;text-align:right;margin:0;" value="10" readonly></td>
+    <td><input type="text" id="tis2123" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2124" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2125" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2126" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2127" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2131" style="width:stretch;text-align:right;margin:0;" value="加工術" readonly></td>
+    <td><input type="text" id="tis2132" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="tis2133" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2134" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2135" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2136" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2137" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2141" style="width:stretch;text-align:right;margin:0;" value="考案" readonly></td>
+    <td><input type="text" id="tis2142" style="width:stretch;text-align:right;margin:0;" value="15" readonly></td>
+    <td><input type="text" id="tis2143" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2144" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2145" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2146" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2147" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="tis2151" style="width:stretch;text-align:right;margin:0;" value="知識" readonly></td>
+    <td><input type="text" id="tis2152" style="width:stretch;text-align:right;margin:0;" value="25" readonly></td>
+    <td><input type="text" id="tis2153" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="tis2154" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="tis2155" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="tis2156" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="tis2157" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>
+    〇運技能
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="unn211" style="width:stretch;text-align:right;margin:0;" value="弱運" readonly></td>
+    <td><input type="text" id="unn212" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="unn213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn216" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="unn221" style="width:stretch;text-align:right;margin:0;" value="運" readonly></td>
+    <td><input type="text" id="unn222" style="width:stretch;text-align:right;margin:0;" value="5" readonly></td>
+    <td><input type="text" id="unn223" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn224" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn225" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn226" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn227" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr><tr>
+    <td><input type="text" id="unn231" style="width:stretch;text-align:right;margin:0;" value="強運" readonly></td>
+    <td><input type="text" id="unn232" style="width:stretch;text-align:right;margin:0;" value="1" readonly></td>
+    <td><input type="text" id="unn233" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="unn234" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="unn235" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="unn236" style="width:stretch;text-align:right;margin:0;" readonly></td> 
+    <td><input type="text" id="unn237" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>〇SK能力
+<table><tr>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="      技能名      "></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="初期値"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="ポイント"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="成長"></td>
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="技能値"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="　代償者　"></td> 
+    <td><input type="button" style="width:stretch;text-align:right;margin:0;" value="合計"></td> 
+    </tr><tr>
+    <td><input type="text" id="skn211" style="width:stretch;text-align:right;margin:0;" value="SK能力" readonly></td>
+    <td><input type="text" id="skn212" style="width:stretch;text-align:right;margin:0;" value="20" readonly></td>
+    <td><input type="text" id="skn213" style="width:stretch;text-align:right;margin:0;"></td>
+    <td><input type="text" id="skn214" style="width:stretch;text-align:right;margin:0;"></td> 
+    <td><input type="text" id="skn215" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    <td><input type="text" id="skn216" style="width:stretch;text-align:right;margin:0;" value="0" readonly></td> 
+    <td><input type="text" id="skn217" style="width:stretch;text-align:right;margin:0;" readonly></td>
+    </tr></table><br>
 
+
+<input type="button" id="button4" value="代償者ポイント　　">
+<input type="text" id="Result4" style="width:stretch;text-align:right;margin:0;" readonly>
+<br>
+<input type="button" id="button5" value="シュブルテポイント">
+<input type="text" id="Result5" style="width:stretch;text-align:right;margin:0;" readonly>
+<br>
+<input type="button" id="button6" value="合計ポイント　　　">
+<input type="text" id="Result6" style="width:stretch;text-align:right;margin:0;" readonly>
+<br>
+<button onclick="copyValue2()">コピー</button>
+</div>
+
+<script src="script.js"></script>
+
+
+    
+ </script>
+ <script type="text/javascript">
+    var tabs = document.getElementById('tabcontrol').getElementsByTagName('a');
+    var pages = document.getElementById('tabbody').getElementsByTagName('div');
+    function changeTab() {
+       var targetid = this.href.substring(this.href.indexOf('#')+1,this.href.length);
+       for(var i=0; i<pages.length; i++) {
+          if( pages[i].id != targetid ) {
+             pages[i].style.display = "none";
+          }
+          else {
+             pages[i].style.display = "block";
+          }
+       }
+       for(var i=0; i<tabs.length; i++) {
+          tabs[i].style.zIndex = "0";
+       }
+       this.style.zIndex = "10";
+       return false;
+    }
+    for(var i=0; i<tabs.length; i++) {
+       tabs[i].onclick = changeTab;
+    }
+    tabs[0].onclick();
+    
+    </script>
 </body>
 
 
