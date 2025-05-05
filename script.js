@@ -316,6 +316,12 @@ const database = {
         }
     },
     save_data() {
+        // issue
+        console.log(document.cookie);
+        const json = mapToJSON(this.input_character_map);
+        console.log(json);
+        document.cookie = `characters=${json}`;
+        console.log(document.cookie);
         try {
             const json = mapToJSON(this.input_character_map);
             console.log(json);
