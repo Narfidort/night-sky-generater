@@ -6,7 +6,7 @@ console.log(document.cookie);
 document.cookie = "";
 console.log(document.cookie);
 
-
+console.log("test");
 
 
 
