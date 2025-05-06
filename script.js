@@ -36,7 +36,7 @@ function jsonToMap(jsonStr) {
 function setCookie(name, object) {
     if (object instanceof Map) {
         object = mapToJSON(object);
-    }else if (object instanceof Object) {
+    } else if (object instanceof Object) {
         object = JSON.stringify(object);
     }
     object = encodeURIComponent(object);
@@ -370,7 +370,7 @@ const database = {
     save_data() {
         try {
             setCookie("characters", this.input_character_map);
-            if(constructCookie().get("characters") != this.input_character_map) {
+            if (constructCookie().get("characters") != this.input_character_map) {
                 console.log(constructCookie().get("characters"));
                 console.log(this.input_character_map);
                 throw new Error("Cookie data mismatch");
