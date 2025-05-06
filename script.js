@@ -21,25 +21,9 @@ console.log("test");
 script.js:10 test
 */
 
-
-document.cookie = `characters={
-  "はじめてのキャラクター": {
-    "dai_profile": {},
-    "shub_profile": {},
-    "input_tables": {},
-    "dai_tan11_name": "痕跡(戦闘)",
-    "shub_tan11_name": "痕跡(戦闘)",
-    "skn_name": "SK能力"
-  }
-}`;
-console.log(document.cookie);
-document.cookie = "characters=;max-age=0";
-
-
-
-
-
 // util
+
+
 function mapToJSON(map) {
     return JSON.stringify(Object.fromEntries(map), null, 2);
 }
@@ -47,6 +31,33 @@ function mapToJSON(map) {
 function jsonToMap(jsonStr) {
     const obj = JSON.parse(jsonStr);
     return new Map(Object.entries(obj));
+}
+
+function setCookie(name, value) {
+    if (typeof value === "Map") {
+        value = mapToJSON(value);
+    } else {
+        value = JSON.stringify(value);
+    }
+    value = encodeURIComponent(value);
+    document.cookie = `${name}=${value}; max-age=2520000000;`;
+}
+
+function constructCookie() {
+    const cookie = document.cookie;
+    const cookieMap = new Map();
+    const cookieArray = cookie.split("; ");
+    for (let i = 0; i < cookieArray.length; i++) {
+        const cookiePair = cookieArray[i].split("=");
+        const key = decodeURIComponent(cookiePair[0]);
+        const value = decodeURIComponent(cookiePair[1]);
+        if (value.startsWith("{")) {
+            cookieMap.set(key, JSON.parse(value));
+        } else {
+            cookieMap.set(key, value);
+        }
+    }
+    return cookieMap;
 }
 
 
@@ -312,7 +323,7 @@ const database = {
     current_character: document.querySelector("#current_character"),
     init_data() {
         if (document.cookie) {
-            this.input_character_map = jsonToMap(document.cookie);
+            this.input_character_map = constructCookie().get("characters");
             let current_character = Array.from(this.input_character_map.entries()).pop();
             this.controller.display_character(current_character);
             this.current_character_name = this.controller.get_character_name();
@@ -358,12 +369,9 @@ const database = {
     },
     save_data() {
         try {
-            const json = mapToJSON(this.input_character_map);
-            console.log(json);
-            document.cookie = `characters=${json}`;
-            console.log(document.cookie);
-            if (!`characters=${json}` == document.cookie) {
-                throw new Error("Cookieの保存に失敗しました");
+            setCookie("characters", this.input_character_map);
+            if( constructCookie().get("characters") != this.input_character_map) {
+                throw new Error("Cookie data mismatch");
             }
             alert("データを保存しました");
         } catch (e) {
