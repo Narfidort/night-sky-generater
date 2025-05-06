@@ -58,7 +58,7 @@ function constructCookie() {
             cookieMap.set(key, value);
         }
     }
-    console.log(`Cookie constructed: ${cookieMap}`);
+    console.log("Cookie constructed:", cookieMap);
     return cookieMap;
 }
 
