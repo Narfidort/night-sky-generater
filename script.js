@@ -3,22 +3,22 @@
 document.cookie = "characters=hello world";
 console.log(document.cookie);
 
-script.js:3 characters=hello world
+//script.js:3 characters=hello world
 
 document.cookie = "characters=;";
 console.log(document.cookie);
-script.js:5 characters=
+//script.js:5 characters=
 
 document.cookie = "characters=hello world";
 console.log(document.cookie);
-script.js:7 characters=hello world
+//script.js:7 characters=hello world
 
 document.cookie = "characters=; max-age=0";
 console.log(document.cookie);
-script.js:9 
+//script.js:9 
 
 console.log("test");
-script.js:10 test
+//script.js:10 test
 */
 
 // util
@@ -33,14 +33,14 @@ function jsonToMap(jsonStr) {
     return new Map(Object.entries(obj));
 }
 
-function setCookie(name, value) {
-    if (typeof value === "Map") {
-        value = mapToJSON(value);
-    } else {
-        value = JSON.stringify(value);
+function setCookie(name, object) {
+    if (object instanceof Map) {
+        object = mapToJSON(object);
+    }else if (object instanceof Object) {
+        object = JSON.stringify(object);
     }
-    value = encodeURIComponent(value);
-    document.cookie = `${name}=${value}; max-age=2520000000;`;
+    object = encodeURIComponent(object);
+    document.cookie = `${name}=${object}; max-age=2520000000;`;
 }
 
 function constructCookie() {
@@ -370,7 +370,9 @@ const database = {
     save_data() {
         try {
             setCookie("characters", this.input_character_map);
-            if( constructCookie().get("characters") != this.input_character_map) {
+            if(constructCookie().get("characters") != this.input_character_map) {
+                console.log(constructCookie().get("characters"));
+                console.log(this.input_character_map);
                 throw new Error("Cookie data mismatch");
             }
             alert("データを保存しました");
