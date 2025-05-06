@@ -1,3 +1,17 @@
+//test cookie
+document.cookie = "characters=hello world";
+console.log(document.cookie);
+document.cookie = "characters=hello world; Secure; SameSite=None";
+console.log(document.cookie);
+document.cookie = "";
+console.log(document.cookie);
+
+
+
+
+
+
+
 // util
 function mapToJSON(map) {
     return JSON.stringify(Object.fromEntries(map), null, 2);
