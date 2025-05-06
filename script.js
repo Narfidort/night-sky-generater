@@ -41,6 +41,7 @@ function setCookie(name, object) {
     }
     object = encodeURIComponent(object);
     document.cookie = `${name}=${object}; max-age=2520000000;`;
+    console.log(`Cookie set: ${name}=${object}`);
 }
 
 function constructCookie() {
@@ -57,6 +58,7 @@ function constructCookie() {
             cookieMap.set(key, value);
         }
     }
+    console.log(`Cookie constructed: ${cookieMap}`);
     return cookieMap;
 }
 
