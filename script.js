@@ -1,11 +1,12 @@
 //test cookie
 document.cookie = "characters=hello world";
 console.log(document.cookie);
-document.cookie = "characters=hello world; Secure; SameSite=None";
+document.cookie = "characters=;";
 console.log(document.cookie);
-document.cookie = "";
+document.cookie = "characters=hello world";
 console.log(document.cookie);
-
+document.cookie = "characters=; max-age=0";
+console.log(document.cookie);
 console.log("test");
 
 
