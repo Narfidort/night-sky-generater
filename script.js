@@ -1,13 +1,26 @@
-//test cookie
+/* test cookie
+
 document.cookie = "characters=hello world";
 console.log(document.cookie);
+
+script.js:3 characters=hello world
+
 document.cookie = "characters=;";
 console.log(document.cookie);
+script.js:5 characters=
+
 document.cookie = "characters=hello world";
 console.log(document.cookie);
+script.js:7 characters=hello world
+
 document.cookie = "characters=; max-age=0";
 console.log(document.cookie);
+script.js:9 
+
 console.log("test");
+script.js:10 test
+*/
+
 
 
 
@@ -331,12 +344,6 @@ const database = {
         }
     },
     save_data() {
-        // issue
-        console.log(document.cookie);
-        const json = mapToJSON(this.input_character_map);
-        console.log(json);
-        document.cookie = `characters=${json}`;
-        console.log(document.cookie);
         try {
             const json = mapToJSON(this.input_character_map);
             console.log(json);
