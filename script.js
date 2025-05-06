@@ -22,6 +22,19 @@ script.js:10 test
 */
 
 
+document.cookie = `characters={
+  "はじめてのキャラクター": {
+    "dai_profile": {},
+    "shub_profile": {},
+    "input_tables": {},
+    "dai_tan11_name": "痕跡(戦闘)",
+    "shub_tan11_name": "痕跡(戦闘)",
+    "skn_name": "SK能力"
+  }
+}`;
+console.log(document.cookie);
+document.cookie = "characters=;max-age=0";
+
 
 
 
