@@ -370,7 +370,7 @@ const database = {
     },
     init() {
         [this.character_interface.dai_profile, this.character_interface.shub_profile].forEach((profile) => {
-            profile["name"].addEventListener("input", () => {
+            profile.get("name").addEventListener("input", () => {
                 this.state.current_character_name = this.character_interface.get_character_name();
                 this.database_interface.current_character.innerText = this.state.current_character_name;
             });
