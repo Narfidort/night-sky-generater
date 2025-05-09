@@ -281,20 +281,20 @@ class CharacterInterface {
 // database
 
 class InputTables {
-    constructor(tables) {
+    constructor(table_elms) {
         this.tables = {};
-        for (const [table_name, table] of tables) {
+        for (const [table_name, table_elm] of table_elms) {
             if (table_name === "skn") {
                 this.tables[table_name] = { point: "", growth: "" };
-                this.tables[table_name].point = table.getRow(1).get("point").value;
-                this.tables[table_name].growth = table.getRow(1).get("growth").value;
+                this.tables[table_name].point = table_elm.getRow(1).get("point").value;
+                this.tables[table_name].growth = table_elm.getRow(1).get("growth").value;
             } else {
                 this.tables[table_name] = { point: { d: [], s: [] }, growth: { d: [], s: [] } };
-                for (let i = 1; i < table.length; i++) {
-                    this.tables[table_name].point.d.push(table.getRow(i).d.get("point").value);
-                    this.tables[table_name].growth.d.push(table.getRow(i).d.get("growth").value);
-                    this.tables[table_name].point.s.push(table.getRow(i).s.get("point").value);
-                    this.tables[table_name].growth.s.push(table.getRow(i).s.get("growth").value);
+                for (let i = 1; i < table_elm.length; i++) {
+                    this.tables[table_name].point.d.push(table_elm.getRow(i).d.get("point").value);
+                    this.tables[table_name].growth.d.push(table_elm.getRow(i).d.get("growth").value);
+                    this.tables[table_name].point.s.push(table_elm.getRow(i).s.get("point").value);
+                    this.tables[table_name].growth.s.push(table_elm.getRow(i).s.get("growth").value);
                 }
             }
         }
