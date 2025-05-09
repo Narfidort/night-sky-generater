@@ -261,6 +261,9 @@ class CharacterInterface {
                 table.getRow(1).get("growth").value = input_character.input_tables[table_name].growth;
             } else {
                 for (let i = 1; i < table.length; i++) {
+                    console.log(input_character);
+                    console.log(input_character.input_tables[table_name]);
+                    console.log(input_character.input_tables[table_name].point.d[i - 1]);
                     table.getRow(i).d.get("point").value = input_character.input_tables[table_name].point.d[i - 1];
                     table.getRow(i).d.get("growth").value = input_character.input_tables[table_name].growth.d[i - 1];
                     table.getRow(i).s.get("point").value = input_character.input_tables[table_name].point.s[i - 1];
