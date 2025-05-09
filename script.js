@@ -248,7 +248,7 @@ class CharacterInterface {
     }
 
     display_character(input_character) {
-        console.log(input_character);
+        console.log("display_character <-",input_character);
         for (const [key, elm] of this.dai_profile) {
             elm.value = input_character.dai_profile[key];
         }
