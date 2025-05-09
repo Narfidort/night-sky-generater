@@ -240,7 +240,7 @@ class ShubProfile extends Map {
 class ResultTables extends Map {
 }
 
-class Controller {
+class CharacterInterface {
     constructor() {
         this.dai_profile = new DaiProfile();
         this.shub_profile = new ShubProfile();
@@ -249,22 +249,22 @@ class Controller {
 
     display_character(input_character) {
         console.log(input_character);
-        this.dai_profile.forEach((elm, key) => {
-            elm.value = input_character.dai_profile.get(key);
-        });
-        this.shub_profile.forEach((elm, key) => {
-            elm.value = input_character.shub_profile.get(key);
-        });
+        for (const [key, elm] of this.dai_profile) {
+            elm.value = input_character.dai_profile[key];
+        }
+        for (const [key, elm] of this.shub_profile) {
+            elm.value = input_character.shub_profile[key];
+        }
         this.tables.forEach((table, table_name) => {
             if (table_name == "skn") {
-                table.getRow(1).get("point").value = input_character.input_tables.get(table_name).get("point");
-                table.getRow(1).get("growth").value = input_character.input_tables.get(table_name).get("growth");
+                table.getRow(1).get("point").value = input_character.input_tables[table_name].point;
+                table.getRow(1).get("growth").value = input_character.input_tables[table_name].growth;
             } else {
                 for (let i = 1; i < table.length; i++) {
-                    table.getRow(i).d.get("point").value = input_character.input_tables.get(table_name).get("point").d[i - 1];
-                    table.getRow(i).d.get("growth").value = input_character.input_tables.get(table_name).get("growth").d[i - 1];
-                    table.getRow(i).s.get("point").value = input_character.input_tables.get(table_name).get("point").s[i - 1];
-                    table.getRow(i).s.get("growth").value = input_character.input_tables.get(table_name).get("growth").s[i - 1];
+                    table.getRow(i).d.get("point").value = input_character.input_tables[table_name].point.d[i - 1];
+                    table.getRow(i).d.get("growth").value = input_character.input_tables[table_name].growth.d[i - 1];
+                    table.getRow(i).s.get("point").value = input_character.input_tables[table_name].point.s[i - 1];
+                    table.getRow(i).s.get("growth").value = input_character.input_tables[table_name].growth.s[i - 1];
                 }
             }
         });
@@ -272,6 +272,7 @@ class Controller {
         this.tables.get("tan").getRow(11).d.get("name").value = input_character.dai_tan11_name;
         this.tables.get("tan").getRow(11).s.get("name").value = input_character.shub_tan11_name;
     }
+
     get_character_name() {
         return this.dai_profile.get("name").value + "/" + this.shub_profile.get("name").value;
     }
@@ -279,38 +280,38 @@ class Controller {
 
 // database
 
-class InputTables extends Map {
+class InputTables {
     constructor(tables) {
-        super();
-        tables.forEach((table, table_name) => {
-            if (table_name == "skn") {
-                this.set(table_name, new Map([["point", ""], ["growth", ""]]));
-                this.get(table_name).set("point", table.getRow(1).get("point").value);
-                this.get(table_name).set("growth", table.getRow(1).get("growth").value);
+        this.tables = {};
+        for (const [table_name, table] of tables) {
+            if (table_name === "skn") {
+                this.tables[table_name] = { point: "", growth: "" };
+                this.tables[table_name].point = table.getRow(1).get("point").value;
+                this.tables[table_name].growth = table.getRow(1).get("growth").value;
             } else {
-                this.set(table_name, new Map([["point", { d: [], s: [] }], ["growth", { d: [], s: [] }]]));
+                this.tables[table_name] = { point: { d: [], s: [] }, growth: { d: [], s: [] } };
                 for (let i = 1; i < table.length; i++) {
-                    this.get(table_name).get("point").d.push(table.getRow(i).d.get("point").value);
-                    this.get(table_name).get("growth").d.push(table.getRow(i).d.get("growth").value);
-                    this.get(table_name).get("point").s.push(table.getRow(i).s.get("point").value);
-                    this.get(table_name).get("growth").s.push(table.getRow(i).s.get("growth").value);
+                    this.tables[table_name].point.d.push(table.getRow(i).d.get("point").value);
+                    this.tables[table_name].growth.d.push(table.getRow(i).d.get("growth").value);
+                    this.tables[table_name].point.s.push(table.getRow(i).s.get("point").value);
+                    this.tables[table_name].growth.s.push(table.getRow(i).s.get("growth").value);
                 }
             }
-        });
+        }
     }
 }
 
 class InputCharacter {
     constructor(controller) {
-        this.dai_profile = new Map();
-        controller.dai_profile.forEach((elm, key) => {
-            this.dai_profile.set(key, elm.value);
-        });
-        this.shub_profile = new Map();
-        controller.shub_profile.forEach((elm, key) => {
-            this.shub_profile.set(key, elm.value);
-        });
-        this.input_tables = new InputTables(controller.tables);
+        this.dai_profile = {};
+        for (const [key, elm] of controller.dai_profile) {
+            this.dai_profile[key] = elm.value;
+        }
+        this.shub_profile = {};
+        for (const [key, elm] of controller.shub_profile) {
+            this.shub_profile[key] = elm.value;
+        }
+        this.input_tables = Object.assign({}, new InputTables(controller.tables));
         this.dai_tan11_name = controller.tables.get("tan").getRow(11).d.get("name").value;
         this.shub_tan11_name = controller.tables.get("tan").getRow(11).s.get("name").value;
         this.skn_name = controller.tables.get("skn").getRow(1).get("name").value;
@@ -318,37 +319,87 @@ class InputCharacter {
 }
 
 
+// database interface
+class DatabaseInterface {
+    constructor() {
+        this.character_list = document.querySelector("#characters_list");
+        this.create_character_button = document.querySelector("#create_character");
+        this.save_button = [document.querySelector("#save_button1"), document.querySelector("#save_button2")];
+        this.copy_button = [document.querySelector("#copy_button1"), document.querySelector("#copy_button2")];
+        this.current_character = document.querySelector("#current_character");
+        this.character_list.addEventListener("click", (e) => {
+            if (e.target.tagName == "LI") {
+                database.load_character(e.target.innerText);
+            }
+        });
+        this.create_character_button.addEventListener("click", () => {
+            database.create_new_character();
+        });
+        this.save_button.forEach((button) => {
+            button.addEventListener("click", () => {
+                database.add_current_character();
+                database.save_data();
+            });
+        });
+        this.save_button[0].addEventListener("click", () => {
+            database.add_current_character();
+            database.save_data();
+        });
+        this.save_button[1].addEventListener("click", () => {
+            database.add_current_character();
+            database.save_data();
+        });
+        this.copy_button[0].addEventListener("click", () => {
+            database.copy_character(1);
+        });
+        this.copy_button[1].addEventListener("click", () => {
+            database.copy_character(2);
+        });
+
+    }
+
+}
+
 const database = {
-    controller: new Controller(),
-    input_character_map: new Map(), // input_character: InputCharacter の Map
-    current_character_name: null,
-    current_character: document.querySelector("#current_character"),
-    init_data() {
-        if (document.cookie) {
-            this.input_character_map = constructCookie().get("characters");
-            let current_character = Array.from(this.input_character_map.entries()).pop();
-            this.controller.display_character(current_character);
-            this.current_character_name = this.controller.get_character_name();
-            this.current_character.innerText = this.current_character_name;
+    character_interface: new CharacterInterface(),
+    database_interface: new DatabaseInterface(),
+    input_characters: {}, // input_character: InputCharacter の Map
+    state:{
+        state: "init",
+        current_character_name: null
+    },
+    init() {
+        [this.character_interface.dai_profile, this.character_interface.shub_profile].forEach((profile) => {
+            profile["name"].addEventListener("input", () => {
+                this.state.current_character_name = this.character_interface.get_character_name();
+                this.database_interface.current_character.innerText = this.state.current_character_name;
+            });
+        });
+
+
+        this.input_characters = JSON.parse(localStorage.getItem("input_characters") || "{}");
+        if (this.input_characters == {}) {
+            this.state.current_character_name = Object.keys(this.input_characters)[0];
+            this.character_interface.display_character(this.input_characters[database_interface.current_character]);
+            this.database_interface.current_character.innerText = this.state.current_character_name;
         } else {
-            this.input_character_map.set("はじめてのキャラクター", new InputCharacter(this.controller));
-            this.controller.display_character(this.input_character_map.get("はじめてのキャラクター"));
-            this.current_character_name = "はじめてのキャラクター";
-            this.current_character.innerText = this.current_character_name;
+            this.input_characters["はじめてのキャラクター"] = new InputCharacter(this.character_interface);
+            this.character_interface.display_character(this.input_characters["はじめてのキャラクター"]);
+            this.state.current_character_name = "はじめてのキャラクター";
+            this.database_interface.current_character.innerText = this.state.current_character_name;
         }
     },
     load_character(character_name) {
-        if (this.input_character_map.has(character_name)) {
-
-            this.controller.display_character(this.input_character_map.get(character_name));
-            this.current_character_name = character_name;
-            this.current_character.innerText = this.current_character_name;
+        if (this.input_characters[character_name]) {
+            this.character_interface.display_character(this.input_characters[character_name]);
+            this.state.current_character_name = character_name;
+            this.database_interface.current_character.innerText = this.state.current_character_name;
         } else {
             console.log("キャラクターが見つかりません");
         }
     },
     create_new_character() {
-        this.controller.display_character(
+        this.character_interface.display_character(
             "新規キャラクター",
             {
                 "dai_profile": {},
@@ -358,36 +409,27 @@ const database = {
                 "shub_tan11_name": "痕跡(戦闘)",
                 "skn_name": "SK能力"
             });
-        this.current_character_name = "新規キャラクター";
-        this.current_character.innerText = this.current_character_name;
+        this.state.current_character_name = "新規キャラクター";
+        this.database_interface.current_character.innerText = this.state.current_character_name;
     },
     add_current_character() {
-        if (this.current_character_name) {
-            if (this.input_character_map.has(this.current_character_name)) {
-                this.input_character_map.delete(this.current_character_name);
+        if (this.state.current_character_name) {
+            if (this.input_characters.has(this.state.current_character_name)) {
+                this.input_characters.delete(this.state.current_character_name);
             }
-            this.input_character_map.set(this.current_character_name, new InputCharacter(this.controller));
+            this.input_characters.set(this.state.current_character_name, new InputCharacter(this.character_interface));
         }
     },
     save_data() {
-        try {
-            setCookie("characters", this.input_character_map);
-            if (constructCookie().get("characters") != this.input_character_map) {
-                console.log(constructCookie().get("characters"));
-                console.log(this.input_character_map);
-                throw new Error("Cookie data mismatch");
-            }
-            alert("データを保存しました");
-        } catch (e) {
-            console.error("Error saving data: " + e);
-            alert("データの保存に失敗しました");
-        }
+        localStorage.setItem("input_characters", JSON.stringify(this.input_characters));
+        alert("データを保存しました");
+
     }
     ,
     copy_character(type) {
         let obj = {};
         if (type == 1) {
-            with (this.controller.dai_profile) {
+            with (this.character_interface.dai_profile) {
                 obj = {
                     kind: "character",
                     data: {
@@ -421,7 +463,7 @@ const database = {
                     },
                 }
             }
-            with (this.controller.tables) {
+            with (this.character_interface.tables) {
                 obj.data.commands = `100-{腐敗率}*3/4-{シュブルテ}*1/4-1d100>=0 【腐敗判定】 \n:シュブルテ=
             〇探索系技能 \n${get("tan").getRow(1).d.get("skill").value}-1d100>=0 【知覚】\n${get("tan").getRow(2).d.get("skill").value}-1d100>=0 【観察】 \n${get("tan").getRow(3).d.get("skill").value}-1d100>=0 【人間観察】\n${get("tan").getRow(4).d.get("skill").value}-1d100>=0 【応急処置】 \n${get("tan").getRow(5).d.get("skill").value}-1d100>=0 【隠蔽】 \n${get("tan").getRow(6).d.get("skill").value}-1d100>=0 【潜伏】 \n${get("tan").getRow(7).d.get("skill").value}-1d100>=0 【検索】 \n${get("tan").getRow(8).d.get("skill").value}-1d100>=0 【体内時計】 \n${get("tan").getRow(9).d.get("skill").value}-1d100>=0 【結合】 \n${get("tan").getRow(10).d[4]}-1d100>=0 【痕跡(スカミア)】 \n${get("tan").getRow(11).d[4]}-1d100>=0 【痕跡(戦闘)】 \n${get("tan").getRow(12).d[4]}-1d100>=0 【${get("tan").getRow(12).d[0]}】
             〇戦闘系技能 \n${get("sen").getRow(1).d.get("skill").value}-1d100>=0 【躱す】 \n${get("sen").getRow(2).d.get("skill").value}-1d100>=0 【見切り】 \n${get("sen").getRow(3).d.get("skill").value}-1d100>=0 【死んだふり】 \n${get("sen").getRow(4).d.get("skill").value}-1d100>=0 【体術】 \n${get("sen").getRow(5).d.get("skill").value}-1d100>=0 【投げつける】 \n${get("sen").getRow(6).d.get("skill").value}-1d100>=0 【締め落とし】 \n${get("sen").getRow(7).d.get("skill").value}-1d100>=0 【特攻】 \n${get("sen").getRow(8).d.get("skill").value}-1d100>=0 【銃火器】 \n${get("sen").getRow(9).d.get("skill").value}-1d100>=0 【刀】 \n${get("sen").getRow(10).d.get("skill").value}-1d100>=0 【スカミア銃】 \n{筋力基礎値}+{HP}-1d100>=0 【筋力】 \n{initiative}-1d100>=0 【速さ】
@@ -431,7 +473,7 @@ const database = {
             〇完全化 \n100-1d({腐敗率}+{シュブルテ})>=0 【完全化判定】\n{シュブルテ}-1d({腐敗率}+{シュブルテ})>=0 【犠牲者決定】 \nC100-({腐敗率}*3/4+{シュブルテ}*1/4) 【期待値計算】`;
             }
         } else if (type == 2) {
-            with (this.controller.shub_profile) {
+            with (this.character_interface.shub_profile) {
                 obj = {
                     kind: "character",
                     data: {
@@ -465,7 +507,7 @@ const database = {
                     },
                 }
             }
-            with (this.controller.tables) {
+            with (this.character_interface.tables) {
                 obj.data.commands = `100-{乖離率}*3/4-{代償者}*1/4-1d100>=0 【乖離判定】 \n:代償者=
                 〇探索系技能 \n${get("tan").getRow(1).s.get("skill").value}-1d100>=0 【知覚】\n${get("tan").getRow(2).s.get("skill").value}-1d100>=0 【観察】 \n${get("tan").getRow(3).s.get("skill").value}-1d100>=0 【人間観察】\n${get("tan").getRow(4).s.get("skill").value}-1d100>=0 【応急処置】 \n${get("tan").getRow(5).s.get("skill").value}-1d100>=0 【隠蔽】 \n${get("tan").getRow(6).s.get("skill").value}-1d100>=0 【潜伏】 \n${get("tan").getRow(7).s.get("skill").value}-1d100>=0 【検索】 \n${get("tan").getRow(8).s.get("skill").value}-1d100>=0 【体内時計】 \n${get("tan").getRow(9).s.get("skill").value}-1d100>=0 【結合】 \n${get("tan").getRow(10).s.get("skill").value}-1d100>=0 【痕跡(スカミア)】 \n${get("tan").getRow(11).s.get("skill").value}-1d100>=0 【痕跡(戦闘)】 \n${get("tan").getRow(12).s.get("skill").value}-1d100>=0 【${get("tan").getRow(12).s.get("name").value}】
                 〇戦闘系技能 \n${get("sen").getRow(1).s.get("skill").value}-1d100>=0 【躱す】 \n${get("sen").getRow(2).s.get("skill").value}-1d100>=0 【見切り】 \n${get("sen").getRow(3).s.get("skill").value}-1d100>=0 【死んだふり】 \n${get("sen").getRow(4).s.get("skill").value}-1d100>=0 【体術】 \n${get("sen").getRow(5).s.get("skill").value}-1d100>=0 【投げつける】 \n${get("sen").getRow(6).s.get("skill").value}-1d100>=0 【締め落とし】 \n${get("sen").getRow(7).s.get("skill").value}-1d100>=0 【特攻】 \n${get("sen").getRow(8).s.get("skill").value}-1d100>=0 【銃火器】 \n${get("sen").getRow(9).s.get("skill").value}-1d100>=0 【刀】 \n${get("sen").getRow(10).s.get("skill").value}-1d100>=0 【スカミア銃】 \n{筋力基礎値}+{HP}-1d100>=0 【筋力】 \n{initiative}-1d100>=0 【速さ】
@@ -488,6 +530,6 @@ const database = {
 
 }
 
-
-database.init_data();
-console.log(database.input_character_map);
+// main
+database.init();
+console.log(database.input_characters);

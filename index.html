@@ -60,10 +60,11 @@
     <div id="tabpage0">
         <h2>キャラクターリスト</h2>
         
-        <ul id="char_list_ul">
+        <ul id="characters_list">
             <li>キャラクター1</li>
             <li>キャラクター2</li>
             <li>キャラクター3</li>
+            <li><button id="create_character">新規作成</button></li>
         </ul>
     </div>
     
@@ -496,8 +497,8 @@
     <input type="button" id="button3" value="合計ポイント　　　">
     <input type="text" id="Result3" style="width:7em;" readonly>
     <br>
-    <button onclick="database.copy_character(1)">コピー</button>
-    <button onclick="database.save_data()">保存</button>
+    <button id="copy_button1">コピー</button>
+    <button id="save_button1">保存</button>
 </div>
 <div id="tabpage2">
 
@@ -956,8 +957,8 @@
     <td><input type="text" id="Result6" style="width:7em;" readonly></td>
     </tr></table><br>
    
-    <button onclick="database.copy_character(2)">コピー</button>
-    <button onclick="database.save_data()">保存</button>
+    <button id="copy_button2">コピー</button>
+    <button id="save_button2">保存</button>
 </div>
 
 </div>
